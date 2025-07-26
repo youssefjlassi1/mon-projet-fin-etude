@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Projet de Fin d'Études</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-rocket"></i>
+                    Mon Projet
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Accueil</a></li>
+                    <li><a href="#dashboard" class="nav-link">Dashboard Live</a></li>
+                    <li><a href="#architecture" class="nav-link">Architecture</a></li>
+                    <li><a href="#demo" class="nav-link">Démonstration</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Section Hero -->
+        <section id="home" class="hero">
+            <div class="hero-content animate__animated animate__fadeInUp">
+                <h1>Système de Monitoring Intelligent</h1>
+                <p class="hero-subtitle">Une solution complète de surveillance en temps réel avec Azure et Intelligence Artificielle</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="projects-count">15+</span>
+                        <span class="stat-label">Projets Surveillés</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="uptime">99.9%</span>
+                        <span class="stat-label">Disponibilité</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="alerts">1,247</span>
+                        <span class="stat-label">Alertes Traitées</span>
+                    </div>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#dashboard" class="btn btn-primary">
+                        <i class="fas fa-chart-line"></i>
+                        Voir Dashboard Live
+                    </a>
+                    <a href="#demo" class="btn btn-secondary">
+                        <i class="fas fa-play"></i>
+                        Démonstration
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-cards">
+                    <div class="card card-1">
+                        <i class="fas fa-server"></i>
+                        <span>Serveurs</span>
+                    </div>
+                    <div class="card card-2">
+                        <i class="fas fa-database"></i>
+                        <span>Bases de données</span>
+                    </div>
+                    <div class="card card-3">
+                        <i class="fas fa-cloud"></i>
+                        <span>Cloud Azure</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Métriques en Temps Réel -->
+        <section id="metrics" class="metrics-section">
+            <div class="container">
+                <h2 class="section-title">Monitoring en Temps Réel</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card animate-on-scroll">
+                        <div class="metric-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3 id="cpu-usage">--</h3>
+                            <p>Utilisation CPU</p>
+                            <div class="metric-bar">
+                                <div class="metric-progress" id="cpu-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card animate-on-scroll">
+                        <div class="metric-icon">
+                            <i class="fas fa-memory"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3 id="memory-usage">--</h3>
+                            <p>Mémoire RAM</p>
+                            <div class="metric-bar">
+                                <div class="metric-progress" id="memory-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card animate-on-scroll">
+                        <div class="metric-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3 id="active-users">--</h3>
+                            <p>Utilisateurs Actifs</p>
+                            <div class="metric-bar">
+                                <div class="metric-progress" id="users-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card animate-on-scroll">
+                        <div class="metric-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3 id="network-usage">--</h3>
+                            <p>Trafic Réseau</p>
+                            <div class="metric-bar">
+                                <div class="metric-progress" id="network-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Dashboard Azure -->
+        <section id="dashboard" class="dashboard-section">
+            <div class="container">
+                <h2 class="section-title">Dashboard Azure Intégré</h2>
+                <div class="dashboard-container">
+                    <div class="dashboard-tabs">
+                        <button class="tab-btn active" data-tab="overview">Vue d'ensemble</button>
+                        <button class="tab-btn" data-tab="performance">Performance</button>
+                        <button class="tab-btn" data-tab="security">Sécurité</button>
+                    </div>
+                    
+                    <div class="dashboard-content">
+                        <div id="overview" class="tab-content active">
+                            <div class="dashboard-placeholder">
+                                <i class="fas fa-chart-area"></i>
+                                <h3>Dashboard Azure - Vue d'ensemble</h3>
+                                <p>Remplacez cette section par l'iframe de votre dashboard Azure</p>
+                                <code>&lt;iframe src="VOTRE_URL_AZURE_DASHBOARD"&gt;&lt;/iframe&gt;</code>
+                            </div>
+                        </div>
+                        
+                        <div id="performance" class="tab-content">
+                            <div class="dashboard-placeholder">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <h3>Métriques de Performance</h3>
+                                <p>Dashboard spécialisé pour les performances système</p>
+                            </div>
+                        </div>
+                        
+                        <div id="security" class="tab-content">
+                            <div class="dashboard-placeholder">
+                                <i class="fas fa-shield-alt"></i>
+                                <h3>Monitoring Sécurité</h3>
+                                <p>Surveillance des événements de sécurité en temps réel</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Architecture -->
+        <section id="architecture" class="architecture-section">
+            <div class="container">
+                <h2 class="section-title">Architecture du Système</h2>
+                <div class="architecture-diagram">
+                    <div class="arch-layer">
+                        <h3>Frontend</h3>
+                        <div class="arch-components">
+                            <div class="component">React Dashboard</div>
+                            <div class="component">GitHub Pages</div>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">↓</div>
+                    <div class="arch-layer">
+                        <h3>Backend</h3>
+                        <div class="arch-components">
+                            <div class="component">Azure Functions</div>
+                            <div class="component">API REST</div>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">↓</div>
+                    <div class="arch-layer">
+                        <h3>Data & Cloud</h3>
+                        <div class="arch-components">
+                            <div class="component">Azure Monitor</div>
+                            <div class="component">SQL Database</div>
+                            <div class="component">AI Analytics</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Démonstration -->
+        <section id="demo" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Démonstration Interactive</h2>
+                <div class="demo-content">
+                    <div class="demo-video">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                            <p>Cliquez pour voir la démonstration complète</p>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-features">
+                        <h3>Fonctionnalités Principales</h3>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Monitoring en temps réel 24/7</li>
+                            <li><i class="fas fa-check"></i> Alertes intelligentes avec IA</li>
+                            <li><i class="fas fa-check"></i> Dashboards personnalisables</li>
+                            <li><i class="fas fa-check"></i> Intégration Azure complète</li>
+                            <li><i class="fas fa-check"></i> Analyse prédictive</li>
+                            <li><i class="fas fa-check"></i> Reporting automatique</li>
+                        </ul>
+                        
+                        <div class="qr-section">
+                            <h4>Accès mobile rapide</h4>
+                            <div id="qr-code"></div>
+                            <button onclick="generateQR()" class="btn btn-outline">
+                                <i class="fas fa-qrcode"></i>
+                                Générer QR Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Contact -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Contact & Informations</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Étudiant</h3>
+                        <p><i class="fas fa-user"></i> Votre Nom</p>
+                        <p><i class="fas fa-graduation-cap"></i> Master Informatique 2024</p>
+                        <p><i class="fas fa-envelope"></i> votre.email@universite.edu</p>
+                        <p><i class="fas fa-phone"></i> +33 X XX XX XX XX</p>
+                        
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-file-pdf"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-info">
+                        <h3>Projet</h3>
+                        <p><strong>Titre :</strong> Système de Monitoring Intelligent</p>
+                        <p><strong>Période :</strong> Février - Juin 2024</p>
+                        <p><strong>Technologies :</strong> Azure, React, Python, AI/ML</p>
+                        <p><strong>Encadrant :</strong> Prof. Nom Professeur</p>
+                        
+                        <div class="project-links">
+                            <a href="#" class="btn btn-outline">
+                                <i class="fab fa-github"></i>
+                                Code Source
+                            </a>
+                            <a href="#" class="btn btn-outline">
+                                <i class="fas fa-file-alt"></i>
+                                Documentation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 - Projet de Fin d'Études - Tous droits réservés</p>
+            <p>Hébergé sur <a href="https://pages.github.com/">GitHub Pages</a></p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
