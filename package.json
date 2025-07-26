@@ -4,14 +4,11 @@
   "description": "Page vitrine de mon projet de fin d'études",
   "main": "index.html",
   "scripts": {
-    "start": "serve .",
-    "build": "echo 'Build completed'",
+    "start": "echo 'Starting static server'",
+    "build": "echo 'No build process needed for static site'",
     "test": "echo 'No tests specified'"
   },
   "keywords": ["portfolio", "fin-etude", "vitrine"],
   "author": "Votre Nom",
-  "license": "MIT",
-  "devDependencies": {
-    "serve": "^14.0.0"
-  }
+  "license": "MIT"
 }
