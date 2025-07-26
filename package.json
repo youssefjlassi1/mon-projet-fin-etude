@@ -1,0 +1,17 @@
+{
+  "name": "mon-projet-fin-etude",
+  "version": "1.0.0",
+  "description": "Page vitrine de mon projet de fin d'études",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "build": "echo 'Build completed'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": ["portfolio", "fin-etude", "vitrine"],
+  "author": "Votre Nom",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}
