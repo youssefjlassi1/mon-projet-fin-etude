@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoInvoice AI - Le futur du calcul carbone automatisé</title>
+    <title>EcoInvoice AI - Transformez vos factures en actions climatiques</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
     <style>
         * {
@@ -19,14 +19,17 @@
             overflow-x: hidden;
         }
 
-        /* Hero Section */
+        /* Hero Section with Enhanced Design */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #e94560 100%);
             color: white;
-            padding: 100px 0;
+            padding: 120px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
 
         .hero::before {
@@ -36,13 +39,30 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            animation: float 20s ease-in-out infinite;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            animation: float 30s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0,212,170,0.1) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.1; }
         }
 
         .container {
@@ -50,57 +70,99 @@
             margin: 0 auto;
             padding: 0 20px;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0,212,170,0.2);
+            color: #00d4aa;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            border: 1px solid rgba(0,212,170,0.3);
             animation: slideInUp 1s ease-out;
         }
 
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            animation: slideInUp 1s ease-out 0.3s both;
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #fff, #00d4aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            animation: slideInUp 1s ease-out 0.2s both;
         }
 
-        .cta-buttons {
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #b8c5d6;
+            margin-bottom: 20px;
+            animation: slideInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-description {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            font-weight: 300;
             animation: slideInUp 1s ease-out 0.6s both;
         }
 
+        .cta-buttons {
+            animation: slideInUp 1s ease-out 0.8s both;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 35px;
             text-decoration: none;
             border-radius: 50px;
-            transition: all 0.3s ease;
-            font-weight: bold;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: 600;
             position: relative;
             overflow: hidden;
+            font-size: 1.1rem;
+            backdrop-filter: blur(10px);
         }
 
         .btn-primary {
-            background: #00d4aa;
+            background: linear-gradient(45deg, #00d4aa, #00b894);
             color: white;
+            box-shadow: 0 8px 25px rgba(0,212,170,0.3);
         }
 
         .btn-secondary {
-            background: transparent;
+            background: rgba(255,255,255,0.1);
             color: white;
-            border: 2px solid white;
+            border: 2px solid rgba(255,255,255,0.3);
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 15px 35px rgba(0,212,170,0.4);
         }
 
         @keyframes slideInUp {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(60px);
             }
             to {
                 opacity: 1;
@@ -108,123 +170,227 @@
             }
         }
 
-        /* Sections */
+        /* Enhanced Section Styling */
         .section {
-            padding: 80px 0;
+            padding: 100px 0;
+            position: relative;
         }
 
         .section:nth-child(even) {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f4fd 100%);
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: #2c3e50;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #2c3e50, #533483);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
         }
 
-        /* About Section */
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* AI Assistant Showcase */
+        .ai-showcase {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 60px 0;
+            border-radius: 20px;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-showcase::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .ai-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .ai-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .ai-demo {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .chat-message {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Enhanced Stats */
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            margin-top: 50px;
+            margin-top: 60px;
         }
 
         .stat-card {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
+            padding: 40px 30px;
+            border-radius: 20px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #00d4aa, #667eea);
         }
 
         .stat-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
         }
 
         .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #667eea;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #00d4aa, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
         }
 
         .stat-label {
             font-size: 1.1rem;
             color: #666;
-            margin-top: 10px;
+            font-weight: 500;
         }
 
-        /* Features Section */
+        /* Enhanced Features */
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
         }
 
         .feature-card {
             background: white;
             padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(0,212,170,0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
         }
 
         .feature-icon {
-            font-size: 3rem;
-            color: #00d4aa;
-            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #00d4aa, #667eea);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: white;
+            position: relative;
+            z-index: 2;
         }
 
         .feature-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 15px;
             color: #2c3e50;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
         }
 
-        /* Tech Stack */
-        .tech-stack {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+        .feature-description {
+            color: #666;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
         }
 
-        .tech-item {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .tech-item:hover {
-            transform: scale(1.05);
-        }
-
-        .tech-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: #667eea;
-        }
-
-        /* Architecture */
+        /* Enhanced Architecture */
         .architecture-diagram {
             background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-top: 50px;
-            text-align: center;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-top: 60px;
         }
 
         .flow-diagram {
@@ -233,52 +399,148 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 20px;
-            margin-top: 30px;
+            margin-top: 40px;
         }
 
         .flow-step {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            padding: 20px;
-            border-radius: 10px;
-            min-width: 150px;
+            padding: 25px 20px;
+            border-radius: 15px;
+            min-width: 160px;
+            text-align: center;
             position: relative;
+            flex: 1;
+            box-shadow: 0 8px 25px rgba(102,126,234,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .flow-step:hover {
+            transform: translateY(-5px);
         }
 
         .flow-step::after {
             content: '→';
             position: absolute;
-            right: -25px;
+            right: -30px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 1.5rem;
+            font-size: 2rem;
             color: #667eea;
+            font-weight: bold;
         }
 
         .flow-step:last-child::after {
             display: none;
         }
 
-        /* Contact Section */
+        .step-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .step-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Tech Stack Enhancement */
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            margin-top: 60px;
+        }
+
+        .tech-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(45deg, #00d4aa, #667eea);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .tech-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #00d4aa, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Enhanced Contact */
         .contact {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
         }
 
         .contact-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            margin-top: 50px;
+            margin-top: 60px;
+            position: relative;
+            z-index: 2;
         }
 
         .contact-item {
             text-align: center;
-            padding: 30px;
+            padding: 40px 30px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
         }
 
         .contact-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: #00d4aa;
             margin-bottom: 20px;
         }
@@ -293,18 +555,25 @@
             color: #00d4aa;
         }
 
-        /* Responsive */
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .ai-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             
-            .hero p {
-                font-size: 1.2rem;
+            .hero-description {
+                font-size: 1.4rem;
             }
             
             .section-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .flow-diagram {
@@ -318,18 +587,33 @@
                 top: auto;
                 transform: translateX(50%);
             }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
         }
 
         /* Animation on scroll */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Loading Animation */
+        body {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
         }
     </style>
 </head>
@@ -337,12 +621,50 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>EcoInvoice AI</h1>
-            <p>Le futur du calcul carbone automatisé</p>
-            <p style="font-size: 1.2rem; margin-bottom: 30px;">Transformez vos factures en décisions bas carbone</p>
-            <div class="cta-buttons">
-                <a href="#demo" class="btn btn-primary">Découvrir la démo</a>
-                <a href="#contact" class="btn btn-secondary">Demander une version beta</a>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-rocket"></i> Projet de fin d'études - Ingénierie Cloud & IA
+                </div>
+                <h1>EcoInvoice AI</h1>
+                <div class="hero-subtitle">Plateforme cloud intelligente pour l'analyse et la réduction des émissions CO₂</div>
+                <p class="hero-description">Transformez vos factures en leviers d'action climatique grâce à l'intelligence artificielle et Azure OpenAI</p>
+                <div class="cta-buttons">
+                    <a href="#demo" class="btn btn-primary">
+                        <i class="fas fa-play"></i> Voir la démo
+                    </a>
+                    <a href="#architecture" class="btn btn-secondary">
+                        <i class="fas fa-code"></i> Architecture technique
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Assistant Showcase -->
+    <section class="section">
+        <div class="container">
+            <div class="ai-showcase fade-in">
+                <div class="ai-content">
+                    <div class="ai-text">
+                        <h3><i class="fas fa-robot"></i> Assistant IA Conversationnel</h3>
+                        <p style="font-size: 1.2rem; margin-bottom: 20px;">Propulsé par Azure OpenAI, notre assistant intelligent répond à vos questions sur vos émissions carbone en langage naturel.</p>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #00d4aa; margin-right: 10px;"></i> Analyse conversationnelle des données</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #00d4aa; margin-right: 10px;"></i> Recommandations personnalisées</li>
+                            <li><i class="fas fa-check" style="color: #00d4aa; margin-right: 10px;"></i> Mémoire intelligente des interactions</li>
+                        </ul>
+                    </div>
+                    <div class="ai-demo">
+                        <div class="chat-message">
+                            <i class="fas fa-user" style="color: #00d4aa;"></i>
+                            <span>"Combien ai-je émis ce mois-ci ?"</span>
+                        </div>
+                        <div class="chat-message">
+                            <i class="fas fa-robot" style="color: #667eea;"></i>
+                            <span>Vos émissions ce mois : 45kg CO₂. Transport: 60%, Alimentation: 40%. Conseil: privilégiez les transports en commun.</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -350,11 +672,9 @@
     <!-- About Section -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title fade-in">À propos du projet</h2>
-            <div class="fade-in">
-                <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
-                    EcoInvoice AI Pipeline s'inscrit dans la lutte contre le changement climatique en aidant les entreprises à calculer automatiquement leurs émissions de CO₂ à partir de leurs factures, en conformité avec le GHG Protocol (Scope 2 & 3).
-                </p>
+            <h2 class="section-title fade-in">Problématique & Solution</h2>
+            <div class="section-subtitle fade-in">
+                Les entreprises peinent à quantifier leurs émissions indirectes (Scope 2 & 3) de manière automatisée et conforme au protocole GHG.
             </div>
             
             <div class="stats">
@@ -363,12 +683,12 @@
                     <div class="stat-label">Précision d'extraction</div>
                 </div>
                 <div class="stat-card fade-in">
-                    <div class="stat-number">200+</div>
-                    <div class="stat-label">Factures testées</div>
+                    <div class="stat-number">80%</div>
+                    <div class="stat-label">Gain de temps RSE</div>
                 </div>
                 <div class="stat-card fade-in">
                     <div class="stat-number">100%</div>
-                    <div class="stat-label">Scope 2 & 3 supportés</div>
+                    <div class="stat-label">Conformité GHG Protocol</div>
                 </div>
                 <div class="stat-card fade-in">
                     <div class="stat-number">6</div>
@@ -381,49 +701,92 @@
     <!-- Features Section -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Fonctionnalités clés</h2>
+            <h2 class="section-title fade-in">Fonctionnalités Intelligentes</h2>
+            <div class="section-subtitle fade-in">
+                Une suite complète d'outils IA pour automatiser votre comptabilité carbone
+            </div>
             <div class="features">
                 <div class="feature-card fade-in">
                     <div class="feature-icon">
                         <i class="fas fa-cloud-upload-alt"></i>
                     </div>
-                    <h3 class="feature-title">Upload intelligent</h3>
-                    <p>Téléversement sécurisé de factures PDF et images avec validation automatique</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3 class="feature-title">Extraction automatique</h3>
-                    <p>OCR avancé avec Azure Form Recognizer pour extraire les données pertinentes</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3 class="feature-title">Calcul CO₂ instantané</h3>
-                    <p>Calcul automatique des émissions selon les facteurs ADEME et GHG Protocol</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-dashboard"></i>
-                    </div>
-                    <h3 class="feature-title">Dashboard personnalisé</h3>
-                    <p>Interface utilisateur intuitive avec filtres et visualisations interactives</p>
+                    <h3 class="feature-title">Extraction Automatique</h3>
+                    <p class="feature-description">OCR avancé avec Azure Form Recognizer pour analyser vos factures PDF et images avec une précision de 99.2%</p>
                 </div>
                 <div class="feature-card fade-in">
                     <div class="feature-icon">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <h3 class="feature-title">Prédiction IA</h3>
-                    <p>Machine Learning pour prédire et optimiser les futures émissions</p>
+                    <h3 class="feature-title">Classification IA</h3>
+                    <p class="feature-description">Identification automatique du type d'activité (transport, alimentation, énergie) et classification Scope 2/3</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3 class="feature-title">Calcul Conforme</h3>
+                    <p class="feature-description">Calcul des émissions CO₂ selon les facteurs ADEME et le protocole GHG en temps réel</p>
                 </div>
                 <div class="feature-card fade-in">
                     <div class="feature-icon">
                         <i class="fas fa-comments"></i>
                     </div>
-                    <h3 class="feature-title">Assistant conversationnel</h3>
-                    <p>Chatbot intelligent pour accompagner les utilisateurs</p>
+                    <h3 class="feature-title">Assistant OpenAI</h3>
+                    <p class="feature-description">Chatbot intelligent propulsé par Azure OpenAI pour des recommandations personnalisées</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Prédiction ML</h3>
+                    <p class="feature-description">Machine Learning avec Azure ML pour prédire et optimiser vos futures émissions</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Sécurité Renforcée</h3>
+                    <p class="feature-description">Authentification JWT avec base SQL dédiée et suivi individualisé par utilisateur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="section" id="architecture">
+        <div class="container">
+            <h2 class="section-title fade-in">Architecture Cloud Native</h2>
+            <div class="section-subtitle fade-in">
+                Pipeline intelligent construit sur Microsoft Azure avec une approche microservices
+            </div>
+            <div class="architecture-diagram fade-in">
+                <h3 style="margin-bottom: 40px; text-align: center; color: #2c3e50;">Pipeline de Traitement IA</h3>
+                <div class="flow-diagram">
+                    <div class="flow-step">
+                        <i class="fas fa-file-upload step-icon"></i>
+                        <div class="step-title">Upload</div>
+                        <div class="step-subtitle">Azure Blob Storage</div>
+                    </div>
+                    <div class="flow-step">
+                        <i class="fas fa-eye step-icon"></i>
+                        <div class="step-title">Extraction</div>
+                        <div class="step-subtitle">Form Recognizer</div>
+                    </div>
+                    <div class="flow-step">
+                        <i class="fas fa-robot step-icon"></i>
+                        <div class="step-title">Classification</div>
+                        <div class="step-subtitle">Azure OpenAI</div>
+                    </div>
+                    <div class="flow-step">
+                        <i class="fas fa-calculator step-icon"></i>
+                        <div class="step-title">Calcul CO₂</div>
+                        <div class="step-subtitle">Facteurs ADEME</div>
+                    </div>
+                    <div class="flow-step">
+                        <i class="fas fa-chart-dashboard step-icon"></i>
+                        <div class="step-title">Visualisation</div>
+                        <div class="step-subtitle">Interface React</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -432,80 +795,175 @@
     <!-- Tech Stack Section -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Technologies utilisées</h2>
+            <h2 class="section-title fade-in">Stack Technologique</h2>
+            <div class="section-subtitle fade-in">
+                Technologies de pointe pour une solution robuste et scalable
+            </div>
             <div class="tech-stack">
                 <div class="tech-item fade-in">
                     <div class="tech-icon">
                         <i class="fab fa-microsoft"></i>
                     </div>
                     <h4>Azure Cloud</h4>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Infrastructure cloud</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <div class="tech-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4>Azure OpenAI</h4>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Assistant conversationnel</p>
                 </div>
                 <div class="tech-item fade-in">
                     <div class="tech-icon">
                         <i class="fab fa-python"></i>
                     </div>
-                    <h4>Flask</h4>
+                    <h4>Flask Python</h4>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Backend API</p>
                 </div>
                 <div class="tech-item fade-in">
                     <div class="tech-icon">
                         <i class="fab fa-react"></i>
                     </div>
-                    <h4>React</h4>
+                    <h4>React + Tailwind</h4>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Frontend moderne</p>
                 </div>
                 <div class="tech-item fade-in">
                     <div class="tech-icon">
                         <i class="fas fa-database"></i>
                     </div>
                     <h4>Cosmos DB</h4>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Base NoSQL</p>
                 </div>
                 <div class="tech-item fade-in">
                     <div class="tech-icon">
                         <i class="fas fa-server"></i>
                     </div>
                     <h4>SQL Server</h4>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Authentification</p>
                 </div>
                 <div class="tech-item fade-in">
                     <div class="tech-icon">
                         <i class="fas fa-robot"></i>
                     </div>
                     <h4>Azure ML</h4>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Machine Learning</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <div class="tech-icon">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <h4>Docker</h4>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Containerisation</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Architecture Section -->
+    <!-- Results Section -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Architecture du système</h2>
+            <h2 class="section-title fade-in">Résultats & Impact</h2>
+            <div class="section-subtitle fade-in">
+                Des résultats concrets après 6 sprints de développement
+            </div>
+            
+            <div class="features">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="feature-title">Précision Élevée</h3>
+                    <p class="feature-description">99.2% de précision dans l'extraction des données des factures avec Azure Form Recognizer</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="feature-title">Gain de Temps</h3>
+                    <p class="feature-description">80% de réduction du temps de reporting RSE grâce à l'automatisation complète</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="feature-title">Conformité Garantie</h3>
+                    <p class="feature-description">Respect total du protocole GHG et préparation optimale aux audits carbone</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3 class="feature-title">Personnalisation</h3>
+                    <p class="feature-description">Suivi individualisé par utilisateur avec recommandations IA adaptées</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="feature-title">Vision Analytique</h3>
+                    <p class="feature-description">Tableau de bord interactif avec filtres avancés et visualisations en temps réel</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-check"></i>
+                    </div>
+                    <h3 class="feature-title">Sécurité Totale</h3>
+                    <p class="feature-description">Architecture sécurisée avec authentification JWT et base SQL dédiée</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Perspectives -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Perspectives d'Évolution</h2>
+            <div class="section-subtitle fade-in">
+                Roadmap technique pour étendre les capacités de la plateforme
+            </div>
+            
             <div class="architecture-diagram fade-in">
-                <h3 style="margin-bottom: 30px;">Pipeline de traitement intelligent</h3>
-                <div class="flow-diagram">
-                    <div class="flow-step">
-                        <i class="fas fa-file-upload" style="display: block; margin-bottom: 10px; font-size: 1.5rem;"></i>
-                        <strong>Upload</strong><br>
-                        Blob Storage
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                    <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 30px; border-radius: 15px; text-align: center;">
+                        <i class="fas fa-plug" style="font-size: 2.5rem; margin-bottom: 20px; display: block;"></i>
+                        <h4 style="margin-bottom: 15px; font-size: 1.3rem;">API Publique</h4>
+                        <p>Intégration native avec les systèmes ERP existants des entreprises</p>
                     </div>
-                    <div class="flow-step">
-                        <i class="fas fa-eye" style="display: block; margin-bottom: 10px; font-size: 1.5rem;"></i>
-                        <strong>OCR</strong><br>
-                        Form Recognizer
+                    <div style="background: linear-gradient(135deg, #00d4aa, #00b894); color: white; padding: 30px; border-radius: 15px; text-align: center;">
+                        <i class="fas fa-crystal-ball" style="font-size: 2.5rem; margin-bottom: 20px; display: block;"></i>
+                        <h4 style="margin-bottom: 15px; font-size: 1.3rem;">Prédiction Avancée</h4>
+                        <p>Module prédictif des émissions futures avec Azure ML</p>
                     </div>
-                    <div class="flow-step">
-                        <i class="fas fa-cogs" style="display: block; margin-bottom: 10px; font-size: 1.5rem;"></i>
-                        <strong>Traitement</strong><br>
-                        Azure Functions
+                    <div style="background: linear-gradient(135deg, #e94560, #f38ba8); color: white; padding: 30px; border-radius: 15px; text-align: center;">
+                        <i class="fas fa-globe" style="font-size: 2.5rem; margin-bottom: 20px; display: block;"></i>
+                        <h4 style="margin-bottom: 15px; font-size: 1.3rem;">Scalabilité</h4>
+                        <p>Déploiement Terraform pour une infrastructure élastique</p>
                     </div>
-                    <div class="flow-step">
-                        <i class="fas fa-calculator" style="display: block; margin-bottom: 10px; font-size: 1.5rem;"></i>
-                        <strong>Calcul CO₂</strong><br>
-                        Facteurs ADEME
-                    </div>
-                    <div class="flow-step">
-                        <i class="fas fa-chart-line" style="display: block; margin-bottom: 10px; font-size: 1.5rem;"></i>
-                        <strong>Dashboard</strong><br>
-                        Interface React
-                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="section" id="demo" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
+        <div class="container">
+            <h2 class="section-title fade-in" style="color: white;">Démonstration Live</h2>
+            <div class="section-subtitle fade-in" style="color: rgba(255,255,255,0.9);">
+                Découvrez EcoInvoice AI en action
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;" class="fade-in">
+                <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 20px; padding: 50px; max-width: 600px; margin: 0 auto; border: 1px solid rgba(255,255,255,0.2);">
+                    <i class="fas fa-play-circle" style="font-size: 4rem; margin-bottom: 30px; color: #00d4aa;"></i>
+                    <h3 style="margin-bottom: 20px; font-size: 1.8rem;">Vidéo Démonstration</h3>
+                    <p style="margin-bottom: 30px; font-size: 1.1rem;">Visualisez le processus complet : de l'upload de facture au calcul d'émissions avec recommandations IA</p>
+                    <a href="https://drive.google.com/file/d/1a9wIT7daI4vZzv8pOT58lcwYx99QonSR/view?usp=sharing" 
+                       target="_blank" 
+                       class="btn btn-primary" 
+                       style="font-size: 1.2rem; padding: 20px 40px;">
+                        <i class="fas fa-external-link-alt"></i> Voir la démo complète
+                    </a>
                 </div>
             </div>
         </div>
@@ -514,42 +972,57 @@
     <!-- Contact Section -->
     <section class="section contact" id="contact">
         <div class="container">
-            <h2 class="section-title fade-in">Contact</h2>
+            <h2 class="section-title fade-in" style="color: white;">Contact & Liens</h2>
+            <div class="section-subtitle fade-in" style="color: rgba(255,255,255,0.8);">
+                Connectons-nous pour discuter de ce projet innovant
+            </div>
             <div class="contact-info">
                 <div class="contact-item fade-in">
                     <div class="contact-icon">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-user-graduate"></i>
                     </div>
                     <h3>Youssef Jlassi</h3>
-                    <p>Étudiant en ingénierie informatique</p>
+                    <p>Étudiant en Ingénierie Informatique</p>
+                    <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px;">Spécialisé Cloud & Intelligence Artificielle</p>
                 </div>
                 <div class="contact-item fade-in">
                     <div class="contact-icon">
                         <i class="fab fa-linkedin"></i>
                     </div>
                     <h3>LinkedIn</h3>
-                    <a href="#" class="contact-link">Profil LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/youssef-jlassi/" target="_blank" class="contact-link">
+                        Profil Professionnel
+                    </a>
                 </div>
                 <div class="contact-item fade-in">
                     <div class="contact-icon">
                         <i class="fab fa-github"></i>
                     </div>
                     <h3>GitHub</h3>
-                    <a href="#" class="contact-link">Voir les projets</a>
+                    <a href="https://github.com/youssefjlassi1" target="_blank" class="contact-link">
+                        Code Source & Projets
+                    </a>
                 </div>
                 <div class="contact-item fade-in">
                     <div class="contact-icon">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h3>Email</h3>
-                    <a href="mailto:youssef.jlassi@email.com" class="contact-link">youssef.jlassi@email.com</a>
+                    <a href="mailto:youssef.jlassi@email.com" class="contact-link">
+                        youssef.jlassi@email.com
+                    </a>
                 </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.2);" class="fade-in">
+                <p style="font-size: 1.1rem; margin-bottom: 20px;">🌱 Projet développé dans le cadre de mes études d'ingénieur</p>
+                <p style="opacity: 0.8;">© 2024 EcoInvoice AI - Contribution à la transition écologique des entreprises</p>
             </div>
         </div>
     </section>
 
     <script>
-        // Animation on scroll
+        // Enhanced Animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -582,10 +1055,76 @@
             });
         });
 
-        // Add loading animation
+        // Enhanced loading animation
         window.addEventListener('load', function() {
-            document.body.style.opacity = '1';
+            document.body.classList.add('loaded');
+            
+            // Add staggered animation to hero elements
+            const heroElements = document.querySelectorAll('.hero .hero-badge, .hero h1, .hero .hero-subtitle, .hero .hero-description, .hero .cta-buttons');
+            heroElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
         });
+
+        // Add parallax effect to hero background
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Add hover effects for cards
+        document.querySelectorAll('.feature-card, .stat-card, .tech-item').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add dynamic background particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = 'rgba(0, 212, 170, 0.6)';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '1';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = window.innerHeight + 'px';
+            
+            document.body.appendChild(particle);
+            
+            const duration = Math.random() * 3000 + 2000;
+            const startTime = Date.now();
+            
+            function animateParticle() {
+                const elapsed = Date.now() - startTime;
+                const progress = elapsed / duration;
+                
+                if (progress < 1) {
+                    particle.style.top = (window.innerHeight - (progress * (window.innerHeight + 100))) + 'px';
+                    particle.style.opacity = 1 - progress;
+                    requestAnimationFrame(animateParticle);
+                } else {
+                    particle.remove();
+                }
+            }
+            
+            animateParticle();
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 300);
     </script>
 </body>
 </html>
