@@ -498,14 +498,15 @@
             background-clip: text;
         }
 
-        /* Enhanced Contact */
+        /* Section Contact Améliorée */
         .contact {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 75%, #f5576c 100%);
             color: white;
             position: relative;
             overflow: hidden;
         }
 
+        /* Effet de fond animé */
         .contact::before {
             content: '';
             position: absolute;
@@ -513,13 +514,56 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0,212,170,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { 
+                background: 
+                    radial-gradient(circle at 20% 80%, rgba(0,212,170,0.3) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            }
+            50% { 
+                background: 
+                    radial-gradient(circle at 80% 20%, rgba(0,212,170,0.3) 0%, transparent 50%),
+                    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            }
+        }
+
+        /* Particules flottantes */
+        .contact::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.3), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(0,212,170,0.4), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(0,212,170,0.4), transparent),
+                radial-gradient(2px 2px at 160px 30px, rgba(255,255,255,0.3), transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            animation: floatParticles 15s linear infinite;
+        }
+
+        @keyframes floatParticles {
+            0% { transform: translateY(0px) translateX(0px); }
+            33% { transform: translateY(-30px) translateX(10px); }
+            66% { transform: translateY(-10px) translateX(-10px); }
+            100% { transform: translateY(0px) translateX(0px); }
         }
 
         .contact-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
             margin-top: 60px;
             position: relative;
             z-index: 2;
@@ -528,31 +572,163 @@
         .contact-item {
             text-align: center;
             padding: 40px 30px;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: transform 0.3s ease;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,212,170,0.1) 0%, rgba(255,255,255,0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item:hover::before {
+            opacity: 1;
         }
 
         .contact-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border-color: rgba(0,212,170,0.5);
+        }
+
+        /* Photo de profil */
+        .profile-photo {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255,255,255,0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-border {
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00d4aa, #667eea, #f093fb);
+            opacity: 0;
+            transition: all 0.4s ease;
+            animation: rotateProfile 3s linear infinite;
+        }
+
+        @keyframes rotateProfile {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .contact-item:hover .profile-border {
+            opacity: 1;
+        }
+
+        .contact-item:hover .profile-img {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(0,212,170,0.4);
+            border-color: rgba(0,212,170,0.6);
         }
 
         .contact-icon {
-            font-size: 3rem;
-            color: #00d4aa;
+            font-size: 3.5rem;
             margin-bottom: 20px;
+            background: linear-gradient(45deg, #00d4aa, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 2;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .contact-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+            font-weight: 600;
+        }
+
+        .contact-item p {
+            position: relative;
+            z-index: 2;
+            opacity: 0.9;
+            margin-bottom: 10px;
         }
 
         .contact-link {
-            color: white;
+            color: #00d4aa;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            font-weight: 500;
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 25px;
+            background: rgba(0,212,170,0.1);
+            border: 1px solid rgba(0,212,170,0.3);
+            margin-top: 10px;
         }
 
         .contact-link:hover {
+            background: rgba(0,212,170,0.2);
+            border-color: rgba(0,212,170,0.6);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,212,170,0.3);
+        }
+
+        .footer-section {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-section p {
+            margin-bottom: 15px;
+        }
+
+        .footer-section .project-badge {
+            display: inline-block;
+            background: rgba(0,212,170,0.2);
             color: #00d4aa;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0,212,170,0.4);
+            backdrop-filter: blur(10px);
         }
 
         /* Responsive Design */
@@ -591,6 +767,19 @@
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .contact-item {
+                padding: 30px 20px;
+            }
+            
+            .contact-icon {
+                font-size: 3rem;
             }
         }
 
@@ -969,17 +1158,18 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section Améliorée -->
     <section class="section contact" id="contact">
         <div class="container">
-            <h2 class="section-title fade-in" style="color: white;">Contact & Liens</h2>
-            <div class="section-subtitle fade-in" style="color: rgba(255,255,255,0.8);">
+            <h2 class="section-title fade-in" style="color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">Contact & Liens</h2>
+            <div class="section-subtitle fade-in" style="color: rgba(255,255,255,0.9); text-shadow: 0 1px 5px rgba(0,0,0,0.2);">
                 Connectons-nous pour discuter de ce projet innovant
             </div>
             <div class="contact-info">
                 <div class="contact-item fade-in">
-                    <div class="contact-icon">
-                        <i class="fas fa-user-graduate"></i>
+                    <div class="profile-photo">
+                        <img src="PHOTO- Copie.jpeg" alt="Youssef Jlassi" class="profile-img">
+                        <div class="profile-border"></div>
                     </div>
                     <h3>Youssef Jlassi</h3>
                     <p>Étudiant en Ingénierie Informatique</p>
@@ -990,8 +1180,10 @@
                         <i class="fab fa-linkedin"></i>
                     </div>
                     <h3>LinkedIn</h3>
+                    <p>Réseau Professionnel</p>
                     <a href="https://www.linkedin.com/in/youssef-jlassi/" target="_blank" class="contact-link">
-                        Profil Professionnel
+                        <i class="fas fa-external-link-alt" style="margin-right: 8px;"></i>
+                        Voir le profil
                     </a>
                 </div>
                 <div class="contact-item fade-in">
@@ -999,8 +1191,10 @@
                         <i class="fab fa-github"></i>
                     </div>
                     <h3>GitHub</h3>
+                    <p>Code Source & Projets</p>
                     <a href="https://github.com/youssefjlassi1" target="_blank" class="contact-link">
-                        Code Source & Projets
+                        <i class="fas fa-code" style="margin-right: 8px;"></i>
+                        Voir le code
                     </a>
                 </div>
                 <div class="contact-item fade-in">
@@ -1008,15 +1202,25 @@
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h3>Email</h3>
+                    <p>Contact Direct</p>
                     <a href="mailto:youssef.jlassi@email.com" class="contact-link">
-                        youssef.jlassi@email.com
+                        <i class="fas fa-paper-plane" style="margin-right: 8px;"></i>
+                        Envoyer un message
                     </a>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.2);" class="fade-in">
-                <p style="font-size: 1.1rem; margin-bottom: 20px;">🌱 Projet développé dans le cadre de mes études d'ingénieur</p>
-                <p style="opacity: 0.8;">© 2024 EcoInvoice AI - Contribution à la transition écologique des entreprises</p>
+            <div class="footer-section fade-in">
+                <div class="project-badge">
+                    <i class="fas fa-leaf" style="margin-right: 10px;"></i>
+                    Projet de fin d'études - Ingénierie Cloud & IA
+                </div>
+                <p style="font-size: 1.1rem; margin-bottom: 15px; font-weight: 500;">
+                    🌱 Contribution à la transition écologique des entreprises
+                </p>
+                <p style="opacity: 0.8; font-size: 0.95rem;">
+                    © 2024 EcoInvoice AI - Développé avec passion pour un avenir durable
+                </p>
             </div>
         </div>
     </section>
@@ -1039,6 +1243,12 @@
         // Observe all fade-in elements
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
+        });
+
+        // Add staggered animation delay to contact items
+        const contactItems = document.querySelectorAll('.contact-item');
+        contactItems.forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.2}s`;
         });
 
         // Smooth scrolling for anchor links
@@ -1069,12 +1279,16 @@
             });
         });
 
-        // Add parallax effect to hero background
+        // Parallax effect for contact section
         window.addEventListener('scroll', function() {
             const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            const contactSection = document.querySelector('.contact');
+            if (contactSection) {
+                const rect = contactSection.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    const parallaxSpeed = scrolled * 0.1;
+                    contactSection.style.backgroundPosition = `center ${parallaxSpeed}px`;
+                }
             }
         });
 
@@ -1125,6 +1339,13 @@
 
         // Create particles periodically
         setInterval(createParticle, 300);
+
+        // Auto-visible for immediate display
+        setTimeout(() => {
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.classList.add('visible');
+            });
+        }, 100);
     </script>
 </body>
 </html>
